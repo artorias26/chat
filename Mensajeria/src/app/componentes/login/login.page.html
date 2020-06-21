@@ -1,0 +1,31 @@
+ <ion-header no-border>
+	 <div class="login-header ion-padding">
+		 <img class="logo-img" src="assets/icon/fondo.png">
+	 </div>
+ </ion-header>
+
+<ion-content>
+	<div class="center">
+		<div heading-column-lr>
+			<h1 big-heading>Login</h1>
+			
+		</div>
+		<ion-label style="margin-bottom: 20px;">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos distinctio deleniti laboriosam.
+		</ion-label>
+		<ion-item transparent>
+			<ion-icon name="person-circle"></ion-icon>
+			<ion-input [(ngModel)]="Email" placeholder="Correo" type="Text" > </ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="lock-open"></ion-icon>
+			<ion-input [(ngModel)]="Clave" placeholder="Contraseña" type="Password" > </ion-input>
+			
+		</ion-item>
+		<ion-label class="forget-password">Olvido su Contraseña</ion-label>
+		<div linespace></div>
+		<ion-button class="ion-button-class  prueba" shape="round" fill="solid" size="large" expand="block" (click)="LoginOTP()">INICIAR</ion-button>
+		<ion-label class="ion-text-center"><span class="link-button" (click)="Register()"> Registro de Usuario</span></ion-label>
+	</div>
+
+</ion-content>

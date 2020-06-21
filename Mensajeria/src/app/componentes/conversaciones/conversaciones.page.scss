@@ -1,0 +1,129 @@
+.ion{
+    --background: linear-gradient(60grad, #EE7752 30% ,#E73C7E);
+    --background-size: 400% 400%;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.status {
+    color: grey;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+    font-size:small;
+}
+
+ion-header ion-avatar{
+    padding: 3px;
+}
+
+ion-content{
+    position: relative;
+}
+.fondo{
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    background-size: cover;
+    opacity: 20%;
+    
+}
+
+ion-footer ion-toolbar{
+    --background:#f4f4f4;
+
+}
+
+ion-ffoter ion-button{
+    font-weight: 600;
+}
+
+ion-input{
+    background:white !important;
+    height: 31px;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    border-radius: 4px;
+    border:1px #dfdfdf solid;
+    --padding-start:8px;
+}
+
+ion-item{
+    --background:transparent;
+}
+
+ion-badge{
+    padding: 6px 9px;
+    border-radius:6px;
+    font-weight: 15px;
+    box-shadow: 1px 1px 3px #00000029;
+}
+
+ion-item ion-note{
+    font-size: 10px;
+    margin-left: 8px;
+}
+
+ion-item ion-note ion-icon{
+    font-size:20px;
+    margin-bottom: -6px;
+    margin-left: -2px;
+}
+
+
+
+
+
+
+
+
+
+
+.mensaje01{
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    white-space: pre-wrap;
+  }
+  
+  .mensaje02{
+    background: var(--ion-color-tertiary);
+    color:#fff;
+  }
+  
+  .mensaje03{
+    background: var(--ion-color-secondary);
+    color:#fff;
+  }
+  
+  .tiempo{
+    color: #dfdfdf;
+    float: right;
+    font-size: small;
+  }
+  
+  .mensaje_input{
+    width: 100%;
+    border:1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    background: #fff;
+    resize: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  
+  
+  }
+  .msg_button{
+    --padding-start:0.5em;
+    --padding-end:0.5em;
+  
+  }
+    
+.user-icon{
+    color: #ffffff;
+    font-size: 48px;
+    margin: 10px 10px 10px 10px;
+}
+

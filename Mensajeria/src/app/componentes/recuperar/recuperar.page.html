@@ -1,0 +1,25 @@
+<ion-header no-border>
+  <div class="login-header ion-padding">
+    <img class="logo-img" src="assets/icon/fondo.png">
+  </div>
+</ion-header>
+
+<ion-content>
+ <div class="center">
+   <div heading-column-lr class="centeH1">
+     <h1 big-heading style="margin-bottom: 20px;">Recuperación</h1>
+     
+   </div>
+  <ion-label style="margin-bottom: 20px;">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos distinctio deleniti laboriosam.
+   </ion-label>
+   <ion-item>
+     <ion-icon name="person-circle"></ion-icon>
+     <ion-input [(ngModel)]="email" placeholder="Ingrese correo" type="Text" > </ion-input>
+   </ion-item>
+   <div linespace></div>
+   <ion-button class="ion-button-class prueba" shape="round" fill="solid" size="large" expand="block" (click)="LoginOTP()">RECUPERAR</ion-button>
+   <ion-label class="ion-text-center"><span class="link-button" (click)="Register()">volver a Login</span></ion-label>
+ </div>
+
+</ion-content>

@@ -1,0 +1,52 @@
+ion-avatar {
+    height: 45px;
+    width: 45px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.flex_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+ion-note{
+    font-size: 13px;
+}
+
+.text-icon {
+    font-size: 22px;
+    margin-bottom: -6px;
+}
+
+p {
+    color: grey;
+}
+
+.ion-header{
+    background: linear-gradient(45grad,#EE7752 20%,#E73C7E, #23A6D5,#23D5AB);
+	background-size: 400% 400%;
+}
+
+.ion-padding{
+    box-shadow: none;
+
+}
+
+ion-searchbar{
+    border: 0 !important;
+    --box-shadow: none !important;
+}
+
+ion-icon{
+	color: #000000;
+	font-size: 45px;
+}
+
+.x{
+    width: 98%;
+    margin: auto;
+  }
