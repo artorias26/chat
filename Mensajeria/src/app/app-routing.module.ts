@@ -44,6 +44,10 @@ const routes: Routes = [
     path: 'recuperar',
     loadChildren: () => import('./componentes/recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
+  {
+    path: 'reciente',
+    loadChildren: () => import('./componentes/reciente/reciente.module').then( m => m.RecientePageModule)
+  },
 ];
 
 @NgModule({

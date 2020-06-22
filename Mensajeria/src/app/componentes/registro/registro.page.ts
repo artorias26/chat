@@ -90,7 +90,19 @@ export class RegistroPage implements OnInit {
     }
 
     if(this.email !=='' && this.clave !=='' && this.confirClave == this.clave ){
-      this.toatError('Error');
+    const formData = new FormData();
+    formData.append('email', this.email);
+    formData.append('password', this.clave);
+
+    this.loginService.registrar(formData).subscribe((resp: any) => {
+      console.log(resp);
+      if (resp.data) {
+        this.navController.navigateRoot('/inicio');
+      } else {
+        this.alertRegistro();
+      }
+    });
+
     }
   }
 
@@ -113,6 +125,16 @@ export class RegistroPage implements OnInit {
           }
         }
       ]
+    });
+
+    await alert.present();
+  }
+
+  async alertRegistro() {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: 'Hubo un error al registrar el usuario, por favor intente más tarde.',
+      buttons: ['OK']
     });
 
     await alert.present();

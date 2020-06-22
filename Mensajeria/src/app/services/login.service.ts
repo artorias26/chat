@@ -20,4 +20,9 @@ export class LoginService {
         return this.http.post(`${this.url}/api/login.php?op=recovery`, params);
     }
 
+    registrar(params) {
+        return this.http.post(`${this.url}/api/login.php?op=register`, params);
+    }
+    
+
 }
