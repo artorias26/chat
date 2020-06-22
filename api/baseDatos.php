@@ -1,6 +1,8 @@
 <?php
-    $link = mysql_connect("localhost","root","") or die ("Problemas al Conectar al Servidor");
-    if($link){
-        mysql_select_db("chat") or die ("Problemas al conectar la Base de Datos");
+    $mysqli = new mysqli("localhost", "root", "", "chat");
+
+    if ($mysqli->connect_errno) {
+        echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+        exit();
     }
 ?>

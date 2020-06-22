@@ -15,17 +15,18 @@
 		</ion-label>
 		<ion-item transparent>
 			<ion-icon name="person-circle"></ion-icon>
-			<ion-input [(ngModel)]="Email" placeholder="Correo" type="Text" > </ion-input>
+			<ion-input [(ngModel)]="email" placeholder="Correo" type="Text" > </ion-input>
 		</ion-item>
 		<ion-item>
 			<ion-icon name="lock-open"></ion-icon>
-			<ion-input [(ngModel)]="Clave" placeholder="Contraseña" type="Password" > </ion-input>
-			
+			<ion-input [(ngModel)]="clave" placeholder="Contraseña" type="Password" > </ion-input>
 		</ion-item>
-		<ion-label class="forget-password">Olvido su Contraseña</ion-label>
+		<ion-label class="forget-password"><div (click)="btnRuta(false)">Olvido su Contraseña</div></ion-label>
+		
+
 		<div linespace></div>
-		<ion-button class="ion-button-class  prueba" shape="round" fill="solid" size="large" expand="block" (click)="LoginOTP()">INICIAR</ion-button>
-		<ion-label class="ion-text-center"><span class="link-button" (click)="Register()"> Registro de Usuario</span></ion-label>
+		<ion-button class="ion-button-class  prueba" shape="round" fill="solid" size="large" expand="block" (click)="btnLogin()">INICIAR</ion-button>
+		<ion-label class="ion-text-center"><span class="link-button" (click)="btnRuta(true)"> Registro de Usuario</span></ion-label>
 	</div>
 
 </ion-content>

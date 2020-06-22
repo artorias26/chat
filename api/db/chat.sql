@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `chat`.`usuario` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_usuario_perifl1`
     FOREIGN KEY (`id_perfil`)
-    REFERENCES `chat`.`perifl` (`id`)
+    REFERENCES `chat`.`perfil` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

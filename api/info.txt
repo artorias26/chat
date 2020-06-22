@@ -1,0 +1,5 @@
+localhost/chat/backend/login.php?op=login
+localhost/chat/backend/login.php?op=register
+localhost/chat/backend/login.php?op=recovery&email=pedro@gmail.com
+localhost/chat/backend/usuario.php?op=update&id=3
+localhost/chat/backend/usuario.php?op=delete&id=3
