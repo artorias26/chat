@@ -13,7 +13,7 @@
     </ion-item>
     -->
   
-    <ion-item detail *ngFor="let list of usuarioLista | search:searchText:'usuario'">
+    <ion-item detail *ngFor="let list of usuarioLista | search:searchText:'usuario'" routerLink="/conversaciones">
       <ion-avatar slot="start">
         <ion-icon name="person-circle"></ion-icon>
       </ion-avatar>
