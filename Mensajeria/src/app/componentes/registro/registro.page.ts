@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController, ToastController } from '@ionic/angular';
+import { NavController, AlertController, ToastController, LoadingController  } from '@ionic/angular';
 import { LoginService } from '../../services';
 
 @Component({
@@ -17,7 +17,8 @@ export class RegistroPage implements OnInit {
     private loginService: LoginService,
     private navController: NavController,
     private alertController: AlertController,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private loadingController: LoadingController
   ) { }
 
   ngOnInit() {
@@ -43,7 +44,7 @@ export class RegistroPage implements OnInit {
 
   }
 
-  registro(){
+  async registro(){
     
     if(this.email =='' && this.clave == '' && this.confirClave == '' ){
       this.toatError('Error, Por favor Ingrese los datos en los campos');
@@ -89,20 +90,22 @@ export class RegistroPage implements OnInit {
       return;
     }
 
-    if(this.email !=='' && this.clave !=='' && this.confirClave == this.clave ){
-    const formData = new FormData();
-    formData.append('email', this.email);
-    formData.append('password', this.clave);
+    if(this.email !=='' && this.clave !=='' && this.confirClave == this.clave ) {
+      const loader = await this.presentLoading();
+      loader.present();
+      const formData = new FormData();
+      formData.append('email', this.email);
+      formData.append('password', this.clave);
 
-    this.loginService.registrar(formData).subscribe((resp: any) => {
-      console.log(resp);
-      if (resp.data) {
-        this.navController.navigateRoot('/inicio');
-      } else {
-        this.alertRegistro();
-      }
-    });
+      this.loginService.registrar(formData).subscribe((resp: any) => {
+        if (resp.data) {
+          this.navController.navigateRoot('/inicio');
+        } else {
+          this.alertRegistro();
+        }
 
+        loader.dismiss();
+      });
     }
   }
 
@@ -150,5 +153,10 @@ export class RegistroPage implements OnInit {
     toast.present();
   }
 
- 
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: ''
+    });
+    return loading;
+  }
 }

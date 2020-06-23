@@ -1,3 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conversaciones recientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-list>
     <!-- 
@@ -7,18 +13,20 @@
     </ion-item>
     -->
   
-    <ion-item detail routerLink="/conversation">
+    <ion-item detail *ngFor="let list of usuarioLista | search:searchText:'usuario'">
       <ion-avatar slot="start">
         <ion-icon name="person-circle"></ion-icon>
       </ion-avatar>
       <ion-label>
         <div class="flex_box">
-          <h3>oMAR oMAÑA</h3>
+          <h3>{{ list.nombre }} {{ list.apellido }}</h3>
           <ion-note slot="end">12:54</ion-note>
         </div>
-        <p><ion-icon class="text-icon" collor="primary" name="done-all"></ion-icon> Hablame, you todo fino up day ....</p>
+        <p>
+          <!-- <ion-icon class="text-icon" name="checkmark-done-outline" color="primary"></ion-icon> -->
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+        </p>
       </ion-label>
     </ion-item>
   </ion-list>
-
 </ion-content>

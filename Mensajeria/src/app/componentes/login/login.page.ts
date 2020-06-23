@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController, ToastController } from '@ionic/angular';
+import { NavController, AlertController, ToastController, LoadingController } from '@ionic/angular';
 import { LoginService } from '../../services';
 
 @Component({
@@ -16,13 +16,14 @@ export class LoginPage implements OnInit {
     private loginService: LoginService,
     private navController: NavController,
     private alertController: AlertController,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private loadingController: LoadingController
   ) { }
 
   ngOnInit() {
   }
 
-  btnLogin() {
+  async btnLogin() {
     if (this.email == '' && this.clave == '') {
       this.toatError('Error, ingresar correo y contraseña');
       return;
@@ -38,6 +39,8 @@ export class LoginPage implements OnInit {
       return;
     }
 
+    const loader = await this.presentLoading();
+    loader.present();
     const formData = new FormData();
     formData.append('email', this.email);
     formData.append('password', this.clave);
@@ -48,6 +51,8 @@ export class LoginPage implements OnInit {
       } else {
         this.alertError();
       }
+
+      loader.dismiss();
     });
   }
 
@@ -77,6 +82,13 @@ export class LoginPage implements OnInit {
     } else {
       this.navController.navigateRoot('/recuperar');
     }
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: ''
+    });
+    return loading;
   }
 
 }
