@@ -40,7 +40,7 @@ if (isset($_POST['clave'])) {
 
 switch ($type) {
     case 'select':
-        selectUser($mysqli);
+        selectUser($mysqli, $id);
     break;
 
     case 'update':
@@ -56,8 +56,8 @@ switch ($type) {
     break;
 }
 
-function selectUser($mysqli) {
-    $consulta = $mysqli->query("SELECT * FROM usuario WHERE id_perfil=2");
+function selectUser($mysqli, $id) {
+    $consulta = $mysqli->query("SELECT * FROM usuario WHERE id_perfil=2 AND id <> '$id'");
     if ($consulta->num_rows > 0) {
         while ($datos = $consulta->fetch_array(MYSQLI_ASSOC)) {
             $array[] = array(
