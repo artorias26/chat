@@ -39,6 +39,10 @@ if (isset($_POST['clave'])) {
 
 
 switch ($type) {
+    case 'select':
+        selectUser($mysqli);
+    break;
+
     case 'update':
         update($mysqli, $id, $nombre, $apellido, $correo, $password);
     break;
@@ -50,6 +54,25 @@ switch ($type) {
     default:
         error('Repuesta no encontrada');
     break;
+}
+
+function selectUser($mysqli) {
+    $consulta = $mysqli->query("SELECT * FROM usuario WHERE id_perfil=2");
+    if ($consulta->num_rows > 0) {
+        while ($datos = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $array[] = array(
+                'id' => $datos['id'],
+                'nombre' => $datos['nombre'],
+                'apellido' => $datos['apellido'],
+                'correo' => $datos['correo'],
+                'foto' => $datos['foto'],
+                'id_perfil' => $datos['id_perfil'],
+            );
+        }
+        sendJson($array);
+    } else {
+        error('No existe usuarios registrados');
+    }
 }
 
 function update($mysqli, $id, $nombre, $apellido, $correo, $password) {
