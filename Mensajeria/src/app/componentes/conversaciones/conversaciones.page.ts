@@ -22,7 +22,7 @@ export class ConversacionesPage implements OnInit {
     {
       user: 'jesus',
     createdAt:1554090856000,
-    msg:'baronnnnnnnnnnnn?'
+    msg:'Mensaje de prueba'
     }
   ];
 
