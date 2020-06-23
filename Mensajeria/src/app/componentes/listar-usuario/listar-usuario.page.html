@@ -18,7 +18,7 @@
                     <h3>{{ list.nombre }} {{ list.apellido }}</h3>
                 </div>
             </ion-label>
-            <ion-icon name="trash" slot="end" class="delete"></ion-icon>
+            <ion-icon (click)="remove(list)" name="trash" slot="end" class="delete"></ion-icon>
         </ion-item>
     </ion-list>
 </ion-content>

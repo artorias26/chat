@@ -43,13 +43,14 @@ ion-searchbar{
 }
 
 ion-icon{
-    color: #000000;
+    // color: #000000;
     font-size: 45px;
 }
 
 .delete {
     color: red;
-    font-size: 20px;
+	font-size: 20px;
+	cursor: pointer;
 }
 
 .x{

@@ -45,7 +45,6 @@ export class RegistroPage implements OnInit {
   }
 
   async registro(){
-    
     if(this.email =='' && this.clave == '' && this.confirClave == '' ){
       this.toatError('Error, Por favor Ingrese los datos en los campos');
     }

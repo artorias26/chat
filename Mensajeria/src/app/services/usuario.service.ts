@@ -15,4 +15,12 @@ export class UsuarioService {
     getSelect(id) {
         return this.http.get(`${this.url}/api/usuario.php?op=select&id=${id}`);
     }
+
+    update(id, data) {
+        return this.http.post(`${this.url}/api/usuario.php?op=update&id=${id}`, data);
+    }
+
+    remove(id) {
+        return this.http.get(`${this.url}/api/usuario.php?op=delete&id=${id}`);
+    }
 }

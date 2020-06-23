@@ -22,7 +22,6 @@ export class ChatPage implements OnInit {
     ngOnInit() {
         this.usuario = JSON.parse(localStorage.getItem('usuario'));
         this.getList(this.usuario);
-        
     }
 
     getList(data) {
@@ -32,7 +31,7 @@ export class ChatPage implements OnInit {
     }
 
     search(event) {
-        this.searchText = event.srcElement.value
+        this.searchText = event.srcElement.value;
     }
 
 }

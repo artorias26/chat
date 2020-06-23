@@ -1,0 +1,37 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Editar cuenta</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-item>
+		<ion-icon name="person-circle" slot="start"></ion-icon>
+		<ion-input [(ngModel)]="data.nombre" placeholder="Ingrese nombre" type="Text"> </ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-icon name="person-circle" slot="start"></ion-icon>
+		<ion-input [(ngModel)]="data.apellido" placeholder="Ingrese apellido" type="Text"> </ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-icon name="person-circle" slot="start"></ion-icon>
+		<ion-input [(ngModel)]="data.correo" placeholder="Ingrese correo" type="Text"> </ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-icon name="person-circle" slot="start"></ion-icon>
+		<ion-input [(ngModel)]="data.clave" placeholder="Ingrese clave" type="Text"> </ion-input>
+	</ion-item>
+
+	<div style="text-align: center;">
+		<ion-button (click)="actualizar()">
+			Actualizar
+		</ion-button>
+	</div>
+	
+</ion-content>
