@@ -26,7 +26,7 @@ const routes: Routes = [
       {
       path:'reciente',
       loadChildren: () => import('../reciente/reciente.module').then( m => m.RecientePageModule)
-    }
+     },
     ]
   }
 ];
