@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+    usuario: any = {};
 
-  ngOnInit() {
-  }
+    constructor(
+        private navController: NavController
+    ) { }
 
+    ngOnInit() {
+        this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    }
+
+    listarUsuario() {
+      this.navController.navigateRoot('/listar-usuario');
+    }
+
+
+    salir() {
+        localStorage.clear();
+        this.navController.navigateRoot('/login');
+    }
 }

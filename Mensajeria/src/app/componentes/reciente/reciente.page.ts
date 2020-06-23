@@ -11,6 +11,7 @@ export class RecientePage implements OnInit {
 
     usuarioLista = [];
     searchText = '';
+    usuario: any = {id: ''};
 
     constructor(
         private usuarioService: UsuarioService
@@ -18,11 +19,13 @@ export class RecientePage implements OnInit {
     }
 
     ngOnInit() {
-        this.getList();
+        this.usuario = JSON.parse(localStorage.getItem('usuario'));
+        this.getList(this.usuario);
+        
     }
 
-    getList() {
-        this.usuarioService.getSelect().subscribe((resp: any) => {
+    getList(data) {
+        this.usuarioService.getSelect(data.id).subscribe((resp: any) => {
             this.usuarioLista = resp.data;
         });
     }

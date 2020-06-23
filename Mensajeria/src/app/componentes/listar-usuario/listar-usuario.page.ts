@@ -3,12 +3,11 @@ import { LoadingController } from '@ionic/angular';
 import { UsuarioService } from '../../services';
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.page.html',
-  styleUrls: ['./chat.page.scss'],
+  selector: 'app-listar-usuario',
+  templateUrl: './listar-usuario.page.html',
+  styleUrls: ['./listar-usuario.page.scss'],
 })
-export class ChatPage implements OnInit {
-
+export class ListarUsuarioPage implements OnInit {
 
     usuarioLista = [];
     searchText = '';
@@ -16,13 +15,13 @@ export class ChatPage implements OnInit {
 
     constructor(
         private usuarioService: UsuarioService
-    ) {
+        ) {
     }
 
     ngOnInit() {
         this.usuario = JSON.parse(localStorage.getItem('usuario'));
         this.getList(this.usuario);
-        
+
     }
 
     getList(data) {

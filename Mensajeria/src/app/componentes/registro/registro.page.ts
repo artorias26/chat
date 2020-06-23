@@ -99,6 +99,7 @@ export class RegistroPage implements OnInit {
 
       this.loginService.registrar(formData).subscribe((resp: any) => {
         if (resp.data) {
+          localStorage.setItem('usuario', JSON.stringify(resp.data));
           this.navController.navigateRoot('/inicio');
         } else {
           this.alertRegistro();

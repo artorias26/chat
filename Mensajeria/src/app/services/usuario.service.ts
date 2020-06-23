@@ -12,7 +12,7 @@ export class UsuarioService {
     constructor(private http: HttpClient) {
     }
 
-    getSelect() {
-        return this.http.get(`${this.url}/api/usuario.php?op=select`);
+    getSelect(id) {
+        return this.http.get(`${this.url}/api/usuario.php?op=select&id=${id}`);
     }
 }

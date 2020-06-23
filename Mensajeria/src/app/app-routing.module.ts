@@ -47,7 +47,11 @@ const routes: Routes = [
   {
     path: 'reciente',
     loadChildren: () => import('./componentes/reciente/reciente.module').then( m => m.RecientePageModule)
+  },  {
+    path: 'listar-usuario',
+    loadChildren: () => import('./componentes/listar-usuario/listar-usuario.module').then( m => m.ListarUsuarioPageModule)
   },
+
 ];
 
 @NgModule({

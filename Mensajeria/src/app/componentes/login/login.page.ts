@@ -47,6 +47,7 @@ export class LoginPage implements OnInit {
 
     this.loginService.login(formData).subscribe((resp: any) => {
       if (resp.data) {
+        localStorage.setItem('usuario', JSON.stringify(resp.data));
         this.navController.navigateRoot('/inicio');
       } else {
         this.alertError();
