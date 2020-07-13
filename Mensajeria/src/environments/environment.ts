@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  // apiUrl: 'https://temri.000webhostapp.com/api'
   apiUrl: 'http://localhost/chat/chat'
 };
 

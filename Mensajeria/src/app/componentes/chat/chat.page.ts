@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
-import { UsuarioService } from '../../services';
+import { Router } from '@angular/router';
+import { UsuarioService, ChatService } from '../../services';
 
 @Component({
   selector: 'app-chat',
@@ -15,7 +16,9 @@ export class ChatPage implements OnInit {
     usuario: any = {id: ''};
 
     constructor(
-        private usuarioService: UsuarioService
+        private usuarioService: UsuarioService,
+        private router: Router,
+        private chatService: ChatService
     ) {
     }
 
@@ -32,6 +35,20 @@ export class ChatPage implements OnInit {
 
     search(event) {
         this.searchText = event.srcElement.value;
+    }
+
+    crearConversacion(data) {
+        const formData = new FormData();
+        formData.append('idUsuario', this.usuario.id);
+        formData.append('idContacto', data.id);
+        formData.append('tipoSala', '1');
+
+        this.chatService.registrarChat(formData).subscribe((resp: any) => {
+            console.log('aqui', resp);
+            this.router.navigate(['/conversaciones']);
+        }, (error: any) => {
+            console.log('Error al activar la conversación', error);
+        });
     }
 
 }
