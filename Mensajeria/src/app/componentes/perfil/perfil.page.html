@@ -7,9 +7,9 @@
 <ion-content>
     <ion-card>
         <ion-card-header>
-            <div style="float: right;">
-                <ion-avatar>
-                  <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            <div style="float: right; cursor: pointer; position: relative; z-index: 999;" (click)="fotoPerfil()">
+                <ion-avatar id="foto" >
+                  <img [src]="usuario.foto ? url + '/api' + usuario.foto : 'assets/icon/user.png'">
                 </ion-avatar>
             </div>
 
@@ -19,7 +19,7 @@
     </ion-card>
 
     <ion-list>
-        <ion-item (click)="editar()">
+        <ion-item (click)="editar()" id="editar">
             <ion-icon name="person" slot="start"></ion-icon>
             <ion-label>Editar cuenta</ion-label>
         </ion-item>
@@ -29,9 +29,14 @@
             <ion-label>Eliminar cuenta</ion-label>
         </ion-item>
 
-        <ion-item *ngIf="usuario.id_perfil == 1" (click)="listarUsuario()">
+        <ion-item *ngIf="usuario.id_perfil == 1" (click)="listarUsuario()" id="lista">
             <ion-icon name="reader" slot="start"></ion-icon>
             <ion-label>Listar usuarios registrados</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="usuario.id_perfil == 1" (click)="imprimirReporte()" id="imprimir">
+            <ion-icon name="print" slot="start"></ion-icon>
+            <ion-label>Imprimir reporte de usuarios</ion-label>
         </ion-item>
 
         <ion-item (click)="salir()">

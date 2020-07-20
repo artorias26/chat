@@ -20,6 +20,10 @@ export class UsuarioService {
         return this.http.post(`${this.url}/api/usuario.php?op=update&id=${id}`, data);
     }
 
+    photoProfile(data) {
+        return this.http.post(`${this.url}/api/usuario.php?op=photo`, data);
+    }
+
     remove(id) {
         return this.http.get(`${this.url}/api/usuario.php?op=delete&id=${id}`);
     }

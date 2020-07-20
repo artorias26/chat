@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { UsuarioService, ChatService } from '../../services';
+import { environment } from '../../../environments/environment';
+import { UsuarioService, ChatService, Global } from '../../services';
 
 @Component({
   selector: 'app-chat',
@@ -14,22 +15,33 @@ export class ChatPage implements OnInit {
     usuarioLista = [];
     searchText = '';
     usuario: any = {id: ''};
+    url: any;
 
     constructor(
         private usuarioService: UsuarioService,
         private router: Router,
-        private chatService: ChatService
+        private chatService: ChatService,
+        private global: Global
     ) {
     }
 
     ngOnInit() {
+        this.url = environment.apiUrl;
         this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    }
+
+    ionViewWillEnter() {
         this.getList(this.usuario);
     }
 
     getList(data) {
         this.usuarioService.getSelect(data.id).subscribe((resp: any) => {
-            this.usuarioLista = resp.data;
+            if (resp.data.length > 0) {
+                this.usuarioLista = resp.data;
+            } else {
+                this.global.alertError('Error', 'No existe usuarios registrados');
+            }
+            
         });
     }
 
@@ -44,7 +56,7 @@ export class ChatPage implements OnInit {
         formData.append('tipoSala', '1');
 
         this.chatService.registrarChat(formData).subscribe((resp: any) => {
-            console.log('aqui', resp);
+            localStorage['idSala'] = resp.data.idSala;
             this.router.navigate(['/conversaciones']);
         }, (error: any) => {
             console.log('Error al activar la conversación', error);

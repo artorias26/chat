@@ -13,19 +13,14 @@
     </ion-item>
     -->
   
-    <ion-item detail *ngFor="let list of usuarioLista | search:searchText:'usuario'" routerLink="/conversaciones">
+    <ion-item detail *ngFor="let list of usuarioLista | search:searchText:'usuario'" (click)="crearConversacion(list)">
       <ion-avatar slot="start">
-        <ion-icon name="person-circle"></ion-icon>
+        <img [src]="list.foto ? url + '/api' + list.foto : 'assets/icon/user.png'">
       </ion-avatar>
       <ion-label>
         <div class="flex_box">
           <h3>{{ list.nombre }} {{ list.apellido }}</h3>
-          <ion-note slot="end">12:54</ion-note>
         </div>
-        <p>
-          <!-- <ion-icon class="text-icon" name="checkmark-done-outline" color="primary"></ion-icon> -->
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
-        </p>
       </ion-label>
     </ion-item>
   </ion-list>

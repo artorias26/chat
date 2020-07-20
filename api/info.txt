@@ -3,3 +3,13 @@ localhost/chat/backend/login.php?op=register
 localhost/chat/backend/login.php?op=recovery&email=pedro@gmail.com
 localhost/chat/backend/usuario.php?op=update&id=3
 localhost/chat/backend/usuario.php?op=delete&id=3
+
+chat
+root
+_S$0X%rH84T<8dQE
+
+Server: sql10.freemysqlhosting.net
+Name: sql10350226
+Username: sql10350226
+Password: qk7WPIVign
+Port number: 3306

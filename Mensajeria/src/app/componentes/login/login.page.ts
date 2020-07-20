@@ -46,11 +46,13 @@ export class LoginPage implements OnInit {
     formData.append('password', this.clave);
 
     this.loginService.login(formData).subscribe((resp: any) => {
-      if (resp.data) {
+      if (resp.data.id) {
         localStorage.setItem('usuario', JSON.stringify(resp.data));
         this.navController.navigateRoot('/inicio');
       } else {
         this.alertError();
+        this.email = '';
+        this.clave = '';
       }
 
       loader.dismiss();

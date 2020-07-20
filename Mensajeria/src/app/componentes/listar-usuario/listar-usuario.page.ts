@@ -41,6 +41,7 @@ export class ListarUsuarioPage implements OnInit {
         const loader = await this.presentLoading();
         loader.present();
         this.usuarioService.remove(data.id).subscribe((resp: any) => {
+            console.log(resp);
             if (resp.data) {
                 this.alert();
                 this.getList(this.usuario);

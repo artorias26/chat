@@ -1,53 +1,53 @@
 <ion-header>
-  <ion-toolbar class="ion">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title style="text-align: center;">Conversaciones<br><div class="status" size="small">En linea</div></ion-title>
-    <ion-avatar slot="end">
-      <ion-icon class="user-icon" name="person-circle"></ion-icon>
-    </ion-avatar>
-  </ion-toolbar>
+	<ion-toolbar class="ion">
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title style="text-align: center;">
+				Conversaciones
+				<!-- <br><div class="status" size="small">En linea</div> -->
+			</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-grid>
-      <ion-row *ngFor="let message of messages">
-  
-        <ion-col size="9" *ngIf="currentUser !== message.user" class="mensaje01 mensaje02">
-          <b>{{message.user}}</b><br>
-            <span>{{message.msg}}</span>
-            <div class="tiempo" text-right style="text-align: right;"><br>
-              {{message.createdAt | date:'short' }}
-            </div>
-        </ion-col>
-  
-        <ion-col offset="3" size="9" *ngIf="currentUser === message.user" class="mensaje01 mensaje03">
-          <b>{{message.user}}</b><br>
-            <span>{{message.msg}}</span>
-            <div class="tiempo" text-right style="text-align: right;"><br>
-              {{message.createdAt | date:'short' }}
-            </div>
-        </ion-col>
-  
-      </ion-row>
-    </ion-grid>
-  
+	<ion-grid>
+		<ion-row *ngFor="let message of messages">
+
+			<ion-col size="9" *ngIf="usuario.id == message.idUsuario" class="mensaje01 mensaje02">
+				<b>{{ message.nombre }} {{ message.apellido }}</b><br>
+				<span>{{message.mensaje}}</span>
+				<div class="tiempo" text-right style="text-align: right;"><br>
+					{{message.fecha_hora | date:'short' }}
+				</div>
+			</ion-col>
+
+			<ion-col offset="3" size="9" *ngIf="usuario.id !== message.idUsuario" class="mensaje01 mensaje03">
+				<b>{{ message.nombre }} {{ message.apellido }}</b><br>
+				<span>{{message.mensaje}}</span>
+				<div class="tiempo" text-right style="text-align: right;"><br>
+					{{message.fecha_hora | date:'short' }}
+				</div>
+			</ion-col>
+
+		</ion-row>
+	</ion-grid>
+
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="light">
-    <ion-row aling-items-center no-padding>
-      <ion-col size="10">
-        <textarea autosize maxRows="4" [(ngModel)]="newMsg" class="mensaje_input"></textarea>
+	<ion-toolbar color="light">
+		<ion-row aling-items-center no-padding>
+			<ion-col size="10">
+				<textarea autosize maxRows="4" [(ngModel)]="newMsg" class="mensaje_input"></textarea>
 
-      </ion-col>
-      <ion-col size="2">
-        <ion-button expand="block" fill="clear" color="primary" [disabled]="newMsg === ''" class="msg_button" (click)="sendMessage()">
-          <ion-icon name="paper-plane"  slot="icon-only"></ion-icon>
-        </ion-button>
+			</ion-col>
+			<ion-col size="2">
+				<ion-button expand="block" fill="clear" color="primary" [disabled]="newMsg === ''" class="msg_button" (click)="sendMessage()">
+					<ion-icon name="paper-plane"  slot="icon-only"></ion-icon>
+				</ion-button>
 
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
+			</ion-col>
+		</ion-row>
+	</ion-toolbar>
 </ion-footer>

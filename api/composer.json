@@ -1,0 +1,9 @@
+{
+	"autoload": {
+		"psr-4": {"websocket\\": "./"}
+	},
+    "require": {
+        "cboden/ratchet": "^0.3.5",
+		"intervention/image": "^2.5"
+    }
+}

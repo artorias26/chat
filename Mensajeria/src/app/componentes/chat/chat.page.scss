@@ -51,3 +51,8 @@ ion-icon{
     width: 98%;
     margin: auto;
   }
+
+.item-hover:hover {
+    --background: #ddd;
+    cursor: pointer;
+}

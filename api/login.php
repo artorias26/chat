@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 
-include "baseDatos.php";
+include "controller/loginController.php";
 
 $type = null;
 $email = null;
@@ -28,15 +28,15 @@ if (isset($_POST['password'])) {
 
 switch ($type) {
     case 'login':
-        login($mysqli, $email, $password);
+        login($email, $password);
     break;
 
     case 'register':
-        register($mysqli, $email, $password);
+        register($email, $password);
     break;
 
     case 'recovery':
-        recovery($mysqli, $email);
+        recovery($email);
     break;
     
     default:
@@ -44,42 +44,34 @@ switch ($type) {
     break;
 }
 
-function login($mysqli, $email, $password) {
+function login($email, $password) {
+    $loginController = new LoginController;
+
     if ($email && $password) {
-        $consulta = $mysqli->query("SELECT * FROM usuario WHERE correo='".$email."' AND clave='".$password."'");
-        if ($consulta->num_rows > 0) {
-            $datos = $consulta->fetch_array(MYSQLI_ASSOC);
-            sendJson($datos);
-        } else {
-            error('Error de credenciales');
-        }
+        $data = $loginController->login($email, $password);
+        sendJson($data);
     } else {
         error('Error al ingresar las credenciales');
     }
 }
 
-function register($mysqli, $email, $password) {
-    if ($email && $password) {
-        $sql = "INSERT INTO usuario(id, nombre, apellido, correo, clave, foto, id_perfil) VALUES(NULL, NULL, NULL, '$email', '$password', NULL, 2)";
-        $mysqli->query($sql) or die('Failed:<br><br>'.$mysqli->error);
+function register($email, $password) {
+    $loginController = new LoginController;
 
-        $consulta = $mysqli->query("SELECT * FROM usuario WHERE id=(SELECT MAX(id) FROM usuario)");
-        $datos = $consulta->fetch_array(MYSQLI_ASSOC);
-        sendJson($datos);
+    if ($email && $password) {
+        $data = $loginController->register($email, $password);
+        sendJson($data);
     } else {
         error('Error al registrar el usuario');
     }
 }
 
-function recovery($mysqli, $email) {
+function recovery($email) {
+    $loginController = new LoginController;
+
     if ($email) {
-        $consulta = $mysqli->query("SELECT correo,clave FROM usuario WHERE correo='".$email."'");
-        if ($consulta->num_rows > 0) {
-            $datos = $consulta->fetch_array(MYSQLI_ASSOC);
-            sendJson($datos);
-        } else {
-            error('El correo no esta registrado');
-        }
+        $data = $loginController->recovery($email, $password);
+        sendJson($data);
     } else {
         error('Error al recuperar la clave');
     }

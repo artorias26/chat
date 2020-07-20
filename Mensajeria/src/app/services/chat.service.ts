@@ -16,4 +16,16 @@ export class ChatService {
         return this.http.post(`${this.url}/api/chat.php?op=add`, params);
     }
 
+    listMensaje(params) {
+        return this.http.post(`${this.url}/api/chat.php?op=listMessage`, params);
+    }
+
+    sendMensaje(params) {
+        return this.http.post(`${this.url}/api/chat.php?op=message`, params);
+    }
+
+    mensajeReciente(params) {
+        return this.http.post(`${this.url}/api/chat.php?op=reciente`, params);
+    }
+
 }
